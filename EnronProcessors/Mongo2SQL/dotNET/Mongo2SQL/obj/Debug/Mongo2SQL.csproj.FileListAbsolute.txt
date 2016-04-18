@@ -1,0 +1,1 @@
+C:\camp\zeatcamp16\EnronProcessors\Mongo2SQL\dotNET\Mongo2SQL\bin\Debug\Mongo2SQL.exe.config
