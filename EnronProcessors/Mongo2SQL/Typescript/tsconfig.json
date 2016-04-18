@@ -13,6 +13,6 @@
     "src/**/*.ts"
   ],
   "files": [
-    "src/greeter.ts"
+    "src\\greeter.ts"
   ]
 }
