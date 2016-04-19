@@ -35,35 +35,48 @@ public class JSON2MailConverter {
 
 
 
-	public List<Mail> convertDocumentListToMail(FindIterable<Document> documentList){
-		List<Mail> mails = new ArrayList<>();
-		
-		for(Document document: documentList){
+	public Mail convertDocumentToMail(Document document){
+			Mail mail = new Mail();
+			if(document.getString(body)!=null){
+				mail.setContent(document.getString(body));
+			}
+			if(document.getObjectId("_id")!=null){
+				mail.setOriginalID(document.getObjectId("_id").toString());
+			}
 			Document headers = (Document) document.get("headers");
-			Mail mail = new Mail(document.getString(subject),document.getString(body));
-			EMailAccount sender = new EMailAccount(headers.getString(from));
-			mail.setSender(sender);
-			
-			Receipient toReceipent = new Receipient ("to");
-			toReceipent.setEmailAccount(new EMailAccount(headers.getString(to)));
-			
-			Receipient ccReceipent  = new Receipient ("cc");
-			ccReceipent.setEmailAccount(new EMailAccount(headers.getString(cc)));
-			
-			Receipient bccReceipent  = new Receipient ("bcc");
-			bccReceipent.setEmailAccount(new EMailAccount(headers.getString(bcc)));
+			if(headers!=null){
+				if(headers.getString(subject)!=null){
+					mail.setSubject(headers.getString(subject));
+				}
+				if(headers.getString(from)!=null){
+					mail.setSender(new EMailAccount(headers.getString(from)));
+				}
+				if(headers.getString(to)!=null){
+					mail.addReceipents(createReceipients(headers.getString(to),"to"));
+				}
+				if(headers.getString(cc)!=null){
+					mail.addReceipents(createReceipients(headers.getString(cc),"cc"));
+				}
+				if(headers.getString(bcc)!=null){
+					mail.addReceipents(createReceipients(headers.getString(bcc),"bcc"));
+				}
+			}
 
-			mail.addReceipent(toReceipent);
-			mail.addReceipent(ccReceipent);
-			mail.addReceipent(bccReceipent);
-			
-			mails.add(mail);
-
+		return mail;
+		
+	}	
+	private List<Receipient> createReceipients(String listOfEMailAddressess, String type){
+		List<Receipient> mailAccounts = new ArrayList<>();
+		String [] emailArray = listOfEMailAddressess.split(",");
+		
+		for(String emailString: emailArray){
+			String email = emailString.replaceAll("[ \\n\\r\\t]","");
+			mailAccounts.add(new Receipient (type,new EMailAccount(email)));
 		}
-
 		
-		return mails;
+		return mailAccounts;
 		
+				
 	}
 
 }

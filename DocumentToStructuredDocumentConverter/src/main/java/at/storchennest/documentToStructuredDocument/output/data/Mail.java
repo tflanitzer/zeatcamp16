@@ -11,32 +11,44 @@ public class Mail extends ObjectWithUniqueID{
 	private static final String P_RECEIPIENTS_ID_FIELD = "receipients";
 	private static final String P_SUBJECT_FIELD = "subject";
 	private static final String P_CONTENT_FIELD = "content";
+	private static final String P_ORIGID_FIELD = "OriginalId";
+
 	
 	private EMailAccount sender;
 	private List<Receipient> receipents;
 	private String subject;
 	private String content;
-	public Mail(String subject, String content) {
+	private String originalID;
+	public Mail() {
 		super();
-		this.subject = subject;
-		this.content = content;
 		this.receipents = new ArrayList<Receipient>();
 	}
 	
 	public void addReceipent (Receipient recipent){
 		receipents.add(recipent);
 	}
+	public void addReceipents (List<Receipient> recipentList){
+		receipents.addAll(recipentList);
+	}
+
+
 	
+	public String getContent() {
+		return content;
+	}
+
 	public Document createDocument(){
 		Document document = new Document();
 		if(subject!=null) document.append(P_SUBJECT_FIELD, subject);
 		if(content!=null) document.append(P_CONTENT_FIELD, content);
-		document.append(P_SENDER_ID_FIELD, sender.getObjectID());
+		if(sender!=null) document.append(P_SENDER_ID_FIELD, sender.getObjectID());
+		if(originalID!=null) document.append(P_ORIGID_FIELD, originalID);
+
 		List<Document> receipientIDList = new ArrayList<>();
 		for(Receipient receipient : receipents){
 			receipientIDList.add(receipient.createDocument());
 		}
-		document.append(P_RECEIPIENTS_ID_FIELD,receipientIDList);
+		if(receipientIDList.size()>0) document.append(P_RECEIPIENTS_ID_FIELD,receipientIDList);
 		return document;
 		
 	}
@@ -51,6 +63,18 @@ public class Mail extends ObjectWithUniqueID{
 	
 	public List<Receipient> getReceipients(){
 		return receipents;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public void setOriginalID(String originalID) {
+		this.originalID = originalID;
 	}
 	
 

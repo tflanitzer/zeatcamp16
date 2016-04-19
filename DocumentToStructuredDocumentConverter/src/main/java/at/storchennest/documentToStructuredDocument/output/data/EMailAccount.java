@@ -19,6 +19,8 @@ public class EMailAccount extends ObjectWithUniqueID{
 	}
 
 
-
+	public String getMailAddress() {
+		return mailAddress;
+	}
 	
 }
