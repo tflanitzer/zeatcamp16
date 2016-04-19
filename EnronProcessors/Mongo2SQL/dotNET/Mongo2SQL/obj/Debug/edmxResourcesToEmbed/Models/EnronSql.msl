@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EnronSqlStoreContainer" CdmEntityContainer="enronEntities">
+    <EntitySetMapping Name="Attachment">
+      <EntityTypeMapping TypeName="EnronSql.Attachment">
+        <MappingFragment StoreEntitySet="Attachment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MailId" ColumnName="MailId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailAccount">
+      <EntityTypeMapping TypeName="EnronSql.EmailAccount">
+        <MappingFragment StoreEntitySet="EmailAccount">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Header">
+      <EntityTypeMapping TypeName="EnronSql.Header">
+        <MappingFragment StoreEntitySet="Header">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MailId" ColumnName="MailId" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mail">
+      <EntityTypeMapping TypeName="EnronSql.Mail">
+        <MappingFragment StoreEntitySet="Mail">
+          <ScalarProperty Name="OriginalId" ColumnName="OriginalId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="SubFolder" ColumnName="SubFolder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recipient">
+      <EntityTypeMapping TypeName="EnronSql.Recipient">
+        <MappingFragment StoreEntitySet="Recipient">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmailAccountId" ColumnName="EmailAccountId" />
+          <ScalarProperty Name="MailId" ColumnName="MailId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sender">
+      <EntityTypeMapping TypeName="EnronSql.Sender">
+        <MappingFragment StoreEntitySet="Sender">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmailAccountId" ColumnName="EmailAccountId" />
+          <ScalarProperty Name="MailId" ColumnName="MailId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Word">
+      <EntityTypeMapping TypeName="EnronSql.Word">
+        <MappingFragment StoreEntitySet="Word">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Word1" ColumnName="Word" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WordOccurrence">
+      <EntityTypeMapping TypeName="EnronSql.WordOccurrence">
+        <MappingFragment StoreEntitySet="WordOccurrence">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MailId" ColumnName="MailId" />
+          <ScalarProperty Name="WordId" ColumnName="WordId" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
