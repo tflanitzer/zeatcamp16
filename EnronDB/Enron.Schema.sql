@@ -1,11 +1,11 @@
-﻿--DROP TABLE EmailAccount
---DROP TABLE Sender
---DROP TABLE Recipient
---DROP TABLE Mail
---DROP TABLE Attachment
---DROP TABLE Header
---DROP TABLE WordOccurrence
---DROP TABLE Word
+﻿DROP TABLE Sender
+DROP TABLE Recipient
+DROP TABLE Attachment
+DROP TABLE Header
+DROP TABLE WordOccurrence
+DROP TABLE Mail
+DROP TABLE EmailAccount
+DROP TABLE Word
 
 CREATE TABLE [dbo].[EmailAccount]
 (
@@ -32,10 +32,10 @@ CREATE TABLE [dbo].Word
 
 CREATE TABLE [dbo].Sender
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	MailId INT NOT NULL PRIMARY KEY,
 	EmailAccountId INT NOT NULL FOREIGN KEY REFERENCES EmailAccount(Id),
-	MailId INT NOT NULL FOREIGN KEY REFERENCES Mail(Id),
-	Name NVARCHAR(MAX) NULL
+	Name NVARCHAR(MAX) NULL,
+	FOREIGN KEY (MailId) REFERENCES Mail(Id)
 )
 
 CREATE TABLE [dbo].Recipient
