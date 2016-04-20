@@ -17,6 +17,7 @@ import at.storchennest.documentToStructuredDocument.output.data.Mail;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import com.mongodb.WriteResult;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -45,7 +46,7 @@ public class MongoDBConnector {
 		database = client.getDatabase(databaseID);
 
 	}
-	
+		
 	public FindIterable<Document> readOutDocumentsFromCollection(String collection){
 		MongoCollection<Document> messageCollection = database.getCollection(collection);
 		FindIterable<Document> documentList =  messageCollection.find();

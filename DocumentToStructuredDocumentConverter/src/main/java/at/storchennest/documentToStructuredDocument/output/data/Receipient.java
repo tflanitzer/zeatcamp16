@@ -26,6 +26,13 @@ public class Receipient{
 		document.append(P_TYPE_FIELD, type);
 		return document;
 	}
+	public Document createFatDocument(){
+		Document document = new Document();
+		document.append(P_MAIL_ACCOUNT_FIELD, emailAccount.getMailAddress());
+		document.append(P_TYPE_FIELD, type);
+		return document;
+	}
+	
 
 	public void setEmailAccount(EMailAccount emailAccount) {
 		this.emailAccount = emailAccount;

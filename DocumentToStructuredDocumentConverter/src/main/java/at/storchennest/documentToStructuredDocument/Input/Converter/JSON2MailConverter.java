@@ -2,6 +2,7 @@ package at.storchennest.documentToStructuredDocument.Input.Converter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.bson.Document;
 
@@ -45,21 +46,18 @@ public class JSON2MailConverter {
 			}
 			Document headers = (Document) document.get("headers");
 			if(headers!=null){
-				if(headers.getString(subject)!=null){
-					mail.setSubject(headers.getString(subject));
+				for(Map.Entry<String, Object> entry :headers.entrySet()){
+					if(entry.getKey().equals(subject)) mail.setSubject(headers.getString(subject));
+					else if (entry.getKey().equals(from)) mail.setSender(new EMailAccount(headers.getString(from)));
+					else if (entry.getKey().equals(to)) mail.addReceipents(createReceipients(headers.getString(to),"to"));
+					else if (entry.getKey().equals(cc)) mail.addReceipents(createReceipients(headers.getString(to),"cc"));
+					else if (entry.getKey().equals(bcc)) mail.addReceipents(createReceipients(headers.getString(to),"bcc"));
+					
+					else {
+						mail.addHeaderField(entry.getKey(), entry.getValue().toString());
+					}
 				}
-				if(headers.getString(from)!=null){
-					mail.setSender(new EMailAccount(headers.getString(from)));
-				}
-				if(headers.getString(to)!=null){
-					mail.addReceipents(createReceipients(headers.getString(to),"to"));
-				}
-				if(headers.getString(cc)!=null){
-					mail.addReceipents(createReceipients(headers.getString(cc),"cc"));
-				}
-				if(headers.getString(bcc)!=null){
-					mail.addReceipents(createReceipients(headers.getString(bcc),"bcc"));
-				}
+
 			}
 
 		return mail;
