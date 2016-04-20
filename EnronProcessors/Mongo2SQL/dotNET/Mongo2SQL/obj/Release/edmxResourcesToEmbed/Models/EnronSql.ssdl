@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MailId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
@@ -12,14 +12,14 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EmailAddress" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
   <EntityType Name="Header">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MailId" Type="int" Nullable="false" />
     <Property Name="Key" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Value" Type="nvarchar(max)" />
@@ -28,10 +28,11 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Subject" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="bigint" Nullable="false" />
     <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MailBox" Type="nvarchar(max)" />
     <Property Name="SubFolder" Type="nvarchar(max)" />
     <Property Name="OriginalId" Type="nvarchar(max)" />
   </EntityType>
@@ -39,38 +40,37 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EmailAccountId" Type="int" Nullable="false" />
     <Property Name="MailId" Type="int" Nullable="false" />
-    <Property Name="Name" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
     <Property Name="Type" Type="nvarchar" MaxLength="3" Nullable="false" />
   </EntityType>
   <EntityType Name="Sender">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="MailId" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="EmailAccountId" Type="int" Nullable="false" />
     <Property Name="MailId" Type="int" Nullable="false" />
+    <Property Name="EmailAccountId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Word">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Word" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="WordOccurrence">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MailId" Type="int" Nullable="false" />
     <Property Name="WordId" Type="int" Nullable="false" />
     <Property Name="Position" Type="int" />
   </EntityType>
-  <Association Name="FK__Attachmen__MailI__44FF419A">
+  <Association Name="FK__Attachmen__MailI__3F115E1A">
     <End Role="Mail" Type="Self.Mail" Multiplicity="1" />
     <End Role="Attachment" Type="Self.Attachment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -82,7 +82,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Header__MailId__47DBAE45">
+  <Association Name="FK__Header__MailId__41EDCAC5">
     <End Role="Mail" Type="Self.Mail" Multiplicity="1" />
     <End Role="Header" Type="Self.Header" Multiplicity="*" />
     <ReferentialConstraint>
@@ -94,7 +94,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Recipient__Email__412EB0B6">
+  <Association Name="FK__Recipient__Email__3B40CD36">
     <End Role="EmailAccount" Type="Self.EmailAccount" Multiplicity="1" />
     <End Role="Recipient" Type="Self.Recipient" Multiplicity="*" />
     <ReferentialConstraint>
@@ -106,7 +106,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Recipient__MailI__4222D4EF">
+  <Association Name="FK__Recipient__MailI__3C34F16F">
     <End Role="Mail" Type="Self.Mail" Multiplicity="1" />
     <End Role="Recipient" Type="Self.Recipient" Multiplicity="*" />
     <ReferentialConstraint>
@@ -118,7 +118,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Sender__EmailAcc__3D5E1FD2">
+  <Association Name="FK__Sender__EmailAcc__37703C52">
     <End Role="EmailAccount" Type="Self.EmailAccount" Multiplicity="1" />
     <End Role="Sender" Type="Self.Sender" Multiplicity="*" />
     <ReferentialConstraint>
@@ -130,9 +130,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Sender__MailId__3E52440B">
+  <Association Name="FK__Sender__MailId__3864608B">
     <End Role="Mail" Type="Self.Mail" Multiplicity="1" />
-    <End Role="Sender" Type="Self.Sender" Multiplicity="*" />
+    <End Role="Sender" Type="Self.Sender" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Mail">
         <PropertyRef Name="Id" />
@@ -142,7 +142,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__WordOccur__MailI__4AB81AF0">
+  <Association Name="FK__WordOccur__MailI__44CA3770">
     <End Role="Mail" Type="Self.Mail" Multiplicity="1" />
     <End Role="WordOccurrence" Type="Self.WordOccurrence" Multiplicity="*" />
     <ReferentialConstraint>
@@ -154,7 +154,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__WordOccur__WordI__4BAC3F29">
+  <Association Name="FK__WordOccur__WordI__45BE5BA9">
     <End Role="Word" Type="Self.Word" Multiplicity="1" />
     <End Role="WordOccurrence" Type="Self.WordOccurrence" Multiplicity="*" />
     <ReferentialConstraint>
@@ -175,35 +175,35 @@
     <EntitySet Name="Sender" EntityType="Self.Sender" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Word" EntityType="Self.Word" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WordOccurrence" EntityType="Self.WordOccurrence" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Attachmen__MailI__44FF419A" Association="Self.FK__Attachmen__MailI__44FF419A">
+    <AssociationSet Name="FK__Attachmen__MailI__3F115E1A" Association="Self.FK__Attachmen__MailI__3F115E1A">
       <End Role="Mail" EntitySet="Mail" />
       <End Role="Attachment" EntitySet="Attachment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Header__MailId__47DBAE45" Association="Self.FK__Header__MailId__47DBAE45">
+    <AssociationSet Name="FK__Header__MailId__41EDCAC5" Association="Self.FK__Header__MailId__41EDCAC5">
       <End Role="Mail" EntitySet="Mail" />
       <End Role="Header" EntitySet="Header" />
     </AssociationSet>
-    <AssociationSet Name="FK__Recipient__Email__412EB0B6" Association="Self.FK__Recipient__Email__412EB0B6">
+    <AssociationSet Name="FK__Recipient__Email__3B40CD36" Association="Self.FK__Recipient__Email__3B40CD36">
       <End Role="EmailAccount" EntitySet="EmailAccount" />
       <End Role="Recipient" EntitySet="Recipient" />
     </AssociationSet>
-    <AssociationSet Name="FK__Recipient__MailI__4222D4EF" Association="Self.FK__Recipient__MailI__4222D4EF">
+    <AssociationSet Name="FK__Recipient__MailI__3C34F16F" Association="Self.FK__Recipient__MailI__3C34F16F">
       <End Role="Mail" EntitySet="Mail" />
       <End Role="Recipient" EntitySet="Recipient" />
     </AssociationSet>
-    <AssociationSet Name="FK__Sender__EmailAcc__3D5E1FD2" Association="Self.FK__Sender__EmailAcc__3D5E1FD2">
+    <AssociationSet Name="FK__Sender__EmailAcc__37703C52" Association="Self.FK__Sender__EmailAcc__37703C52">
       <End Role="EmailAccount" EntitySet="EmailAccount" />
       <End Role="Sender" EntitySet="Sender" />
     </AssociationSet>
-    <AssociationSet Name="FK__Sender__MailId__3E52440B" Association="Self.FK__Sender__MailId__3E52440B">
+    <AssociationSet Name="FK__Sender__MailId__3864608B" Association="Self.FK__Sender__MailId__3864608B">
       <End Role="Mail" EntitySet="Mail" />
       <End Role="Sender" EntitySet="Sender" />
     </AssociationSet>
-    <AssociationSet Name="FK__WordOccur__MailI__4AB81AF0" Association="Self.FK__WordOccur__MailI__4AB81AF0">
+    <AssociationSet Name="FK__WordOccur__MailI__44CA3770" Association="Self.FK__WordOccur__MailI__44CA3770">
       <End Role="Mail" EntitySet="Mail" />
       <End Role="WordOccurrence" EntitySet="WordOccurrence" />
     </AssociationSet>
-    <AssociationSet Name="FK__WordOccur__WordI__4BAC3F29" Association="Self.FK__WordOccur__WordI__4BAC3F29">
+    <AssociationSet Name="FK__WordOccur__WordI__45BE5BA9" Association="Self.FK__WordOccur__WordI__45BE5BA9">
       <End Role="Word" EntitySet="Word" />
       <End Role="WordOccurrence" EntitySet="WordOccurrence" />
     </AssociationSet>

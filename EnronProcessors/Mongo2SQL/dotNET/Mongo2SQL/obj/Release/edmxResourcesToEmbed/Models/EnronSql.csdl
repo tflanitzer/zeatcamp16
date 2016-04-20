@@ -37,12 +37,13 @@
     <Property Name="Date" Type="Int64" Nullable="false" />
     <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SubFolder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Attachment" Relationship="Self.FK__Attachmen__MailI__5AEE82B9" FromRole="Mail" ToRole="Attachment" />
-    <NavigationProperty Name="Header" Relationship="Self.FK__Header__MailId__5DCAEF64" FromRole="Mail" ToRole="Header" />
-    <NavigationProperty Name="Recipient" Relationship="Self.FK__Recipient__MailI__5812160E" FromRole="Mail" ToRole="Recipient" />
+    <NavigationProperty Name="Attachments" Relationship="Self.FK__Attachmen__MailI__5AEE82B9" FromRole="Mail" ToRole="Attachment" />
+    <NavigationProperty Name="Headers" Relationship="Self.FK__Header__MailId__5DCAEF64" FromRole="Mail" ToRole="Header" />
+    <NavigationProperty Name="Recipients" Relationship="Self.FK__Recipient__MailI__5812160E" FromRole="Mail" ToRole="Recipient" />
     <NavigationProperty Name="Sender" Relationship="Self.FK__Sender__MailId__5441852A" FromRole="Mail" ToRole="Sender" />
     <NavigationProperty Name="WordOccurrence" Relationship="Self.FK__WordOccur__MailI__60A75C0F" FromRole="Mail" ToRole="WordOccurrence" />
     <Property Name="OriginalId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MailBox" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Recipient">
     <Key>
@@ -51,16 +52,15 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="EmailAccountId" Type="Int32" Nullable="false" />
     <Property Name="MailId" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="Type" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="EmailAccount" Relationship="Self.FK__Recipient__Email__571DF1D5" FromRole="Recipient" ToRole="EmailAccount" />
     <NavigationProperty Name="Mail" Relationship="Self.FK__Recipient__MailI__5812160E" FromRole="Recipient" ToRole="Mail" />
   </EntityType>
   <EntityType Name="Sender">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="MailId" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="EmailAccountId" Type="Int32" Nullable="false" />
     <Property Name="MailId" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -73,7 +73,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Word1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="WordOccurrence" Relationship="Self.FK__WordOccur__WordI__619B8048" FromRole="Word" ToRole="WordOccurrence" />
+    <NavigationProperty Name="WordOccurrences" Relationship="Self.FK__WordOccur__WordI__619B8048" FromRole="Word" ToRole="WordOccurrence" />
   </EntityType>
   <EntityType Name="WordOccurrence">
     <Key>
@@ -147,7 +147,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Sender__MailId__5441852A">
-    <End Role="Mail" Type="Self.Mail" Multiplicity="0..1" />
+    <End Role="Mail" Type="Self.Mail" Multiplicity="1" />
     <End Role="Sender" Type="Self.Sender" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Mail">
@@ -182,7 +182,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="enronEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="EnronSqlContext" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Attachment" EntityType="Self.Attachment" />
     <EntitySet Name="EmailAccount" EntityType="Self.EmailAccount" />
     <EntitySet Name="Header" EntityType="Self.Header" />

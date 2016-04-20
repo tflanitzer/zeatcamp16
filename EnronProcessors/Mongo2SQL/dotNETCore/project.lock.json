@@ -49,6 +49,22 @@
           "ref/dotnet5.4/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "MongoDB.Bson/2.2.3": {
+        "type": "package"
+      },
+      "MongoDB.Driver/2.2.3": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Bson": "2.2.3",
+          "MongoDB.Driver.Core": "2.2.3"
+        }
+      },
+      "MongoDB.Driver.Core/2.2.3": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Bson": "2.2.3"
+        }
+      },
       "NETStandard.Library/1.0.0-rc2-23811": {
         "type": "package",
         "dependencies": {
@@ -513,6 +529,22 @@
           "ref/dotnet5.4/Microsoft.Win32.Primitives.dll": {}
         }
       },
+      "MongoDB.Bson/2.2.3": {
+        "type": "package"
+      },
+      "MongoDB.Driver/2.2.3": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Bson": "2.2.3",
+          "MongoDB.Driver.Core": "2.2.3"
+        }
+      },
+      "MongoDB.Driver.Core/2.2.3": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Bson": "2.2.3"
+        }
+      },
       "NETStandard.Library/1.0.0-rc2-23811": {
         "type": "package",
         "dependencies": {
@@ -767,6 +799,7 @@
           "runtimes/win7-x64/native/dbgshim.dll": {},
           "runtimes/win7-x64/native/mscordaccore.dll": {},
           "runtimes/win7-x64/native/mscordbi.dll": {},
+          "runtimes/win7-x64/native/mscorlib.ni.dll": {},
           "runtimes/win7-x64/native/mscorrc.debug.dll": {},
           "runtimes/win7-x64/native/mscorrc.dll": {}
         }
@@ -1610,6 +1643,22 @@
         },
         "compile": {
           "ref/dotnet5.4/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "MongoDB.Bson/2.2.3": {
+        "type": "package"
+      },
+      "MongoDB.Driver/2.2.3": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Bson": "2.2.3",
+          "MongoDB.Driver.Core": "2.2.3"
+        }
+      },
+      "MongoDB.Driver.Core/2.2.3": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Bson": "2.2.3"
         }
       },
       "NETStandard.Library/1.0.0-rc2-23811": {
@@ -2770,6 +2819,38 @@
         "runtime.json"
       ]
     },
+    "MongoDB.Bson/2.2.3": {
+      "sha512": "AwxyD8qYgy1GQkxQV2uMzymm19QwaNNAER6gf/w8f2dDjcboEve1kv9GEz7mtn2K8p6hYQjhgnvGc+xeh0KLmg==",
+      "type": "package",
+      "files": [
+        "License.rtf",
+        "MongoDB.Bson.2.2.3.nupkg.sha512",
+        "MongoDB.Bson.nuspec",
+        "lib/net45/MongoDB.Bson.XML",
+        "lib/net45/MongoDB.Bson.dll"
+      ]
+    },
+    "MongoDB.Driver/2.2.3": {
+      "sha512": "ZgRSAv+vxCCYnL/V4mChGNnx8rBnnpDO2S8Fex+G3IrVWRRgJb3rEFOEoyuyR5C5qtOHGVMlGRSSngQwbgV2Dw==",
+      "type": "package",
+      "files": [
+        "License.rtf",
+        "MongoDB.Driver.2.2.3.nupkg.sha512",
+        "MongoDB.Driver.nuspec",
+        "lib/net45/MongoDB.Driver.XML",
+        "lib/net45/MongoDB.Driver.dll"
+      ]
+    },
+    "MongoDB.Driver.Core/2.2.3": {
+      "sha512": "o9/7behJkN5TEG9KvRHM6HUdnsXgLl31pKRQwiCi4xgd7gAleI3sagBcujh7x40gl1NL/u4+uMPRZFpGAaGEQw==",
+      "type": "package",
+      "files": [
+        "License.rtf",
+        "MongoDB.Driver.Core.2.2.3.nupkg.sha512",
+        "MongoDB.Driver.Core.nuspec",
+        "lib/net45/MongoDB.Driver.Core.dll"
+      ]
+    },
     "NETStandard.Library/1.0.0-rc2-23811": {
       "sha512": "APeu2AGQYNlSCgAAhOkRKedvcGiix7zmG5papH0O8N1cW5cYiDTAfa9qyAW8CBa3CixBuB4SVueCKSIemo4p0A==",
       "type": "package",
@@ -3207,6 +3288,7 @@
         "runtimes/win7-x64/native/dbgshim.dll",
         "runtimes/win7-x64/native/mscordaccore.dll",
         "runtimes/win7-x64/native/mscordbi.dll",
+        "runtimes/win7-x64/native/mscorlib.ni.dll",
         "runtimes/win7-x64/native/mscorrc.debug.dll",
         "runtimes/win7-x64/native/mscorrc.dll",
         "tools/crossgen.exe",
@@ -5558,6 +5640,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "MongoDB.Driver >= 2.2.3",
       "NETStandard.Library >= 1.0.0-rc2-23811"
     ],
     "DNXCore,Version=v5.0": []

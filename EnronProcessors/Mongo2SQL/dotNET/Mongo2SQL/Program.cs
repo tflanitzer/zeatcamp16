@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,19 +15,18 @@ namespace Mongo2SQL
     class Program
     {
         static void Main(string[] args)
-        {
-            var mongoClient = new MongoClient("mongodb://ub15-zeatcamp16.westeurope.cloudapp.azure.com:27017");
-            var database = mongoClient.GetDatabase("test");
-            var messagesCollection = database.GetCollection<BsonDocument>("messages");
+        {            
+            var emailAccountProvider = new LockingEmailAccountProviderDecorator(
+                new CachingEmailAccountProviderDecorator(
+                    new EmailAccountProvider("SQLDestination")));
 
-            var destinationContext = new EnronSqlContext();
-
-            var emailConverter = new EmailConverter(new EmailAccountProvider(destinationContext));
+            var emailConverter = new EmailConverter(emailAccountProvider);
 
             var emailTransferManager = new EmailTransferManager(
-                messagesCollection,
-                destinationContext,
-                emailConverter);
+                "MongoDBSource",
+                "SQLDestination",
+                emailConverter,
+                new Configuration());
 
             emailTransferManager.TransferAll();
         }

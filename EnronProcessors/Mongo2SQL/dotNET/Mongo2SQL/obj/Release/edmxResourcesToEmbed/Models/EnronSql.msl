@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EnronSqlStoreContainer" CdmEntityContainer="enronEntities">
+  <EntityContainerMapping StorageEntityContainer="EnronSqlStoreContainer" CdmEntityContainer="EnronSqlContext">
     <EntitySetMapping Name="Attachment">
       <EntityTypeMapping TypeName="EnronSql.Attachment">
         <MappingFragment StoreEntitySet="Attachment">
@@ -31,6 +31,7 @@
     <EntitySetMapping Name="Mail">
       <EntityTypeMapping TypeName="EnronSql.Mail">
         <MappingFragment StoreEntitySet="Mail">
+          <ScalarProperty Name="MailBox" ColumnName="MailBox" />
           <ScalarProperty Name="OriginalId" ColumnName="OriginalId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
@@ -54,7 +55,6 @@
     <EntitySetMapping Name="Sender">
       <EntityTypeMapping TypeName="EnronSql.Sender">
         <MappingFragment StoreEntitySet="Sender">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="EmailAccountId" ColumnName="EmailAccountId" />
           <ScalarProperty Name="MailId" ColumnName="MailId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
