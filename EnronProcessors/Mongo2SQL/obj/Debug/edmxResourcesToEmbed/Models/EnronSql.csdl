@@ -6,7 +6,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="MailId" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Mail" Relationship="Self.FK__Attachmen__MailI__5AEE82B9" FromRole="Attachment" ToRole="Mail" />
   </EntityType>
   <EntityType Name="EmailAccount">
@@ -14,7 +14,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="EmailAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Recipient" Relationship="Self.FK__Recipient__Email__571DF1D5" FromRole="EmailAccount" ToRole="Recipient" />
     <NavigationProperty Name="Sender" Relationship="Self.FK__Sender__EmailAcc__534D60F1" FromRole="EmailAccount" ToRole="Sender" />
   </EntityType>
@@ -33,9 +33,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Date" Type="Int64" Nullable="false" />
-    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="SubFolder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Attachments" Relationship="Self.FK__Attachmen__MailI__5AEE82B9" FromRole="Mail" ToRole="Attachment" />
     <NavigationProperty Name="Headers" Relationship="Self.FK__Header__MailId__5DCAEF64" FromRole="Mail" ToRole="Header" />
@@ -52,27 +52,29 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="EmailAccountId" Type="Int32" Nullable="false" />
     <Property Name="MailId" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="Type" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="EmailAccount" Relationship="Self.FK__Recipient__Email__571DF1D5" FromRole="Recipient" ToRole="EmailAccount" />
     <NavigationProperty Name="Mail" Relationship="Self.FK__Recipient__MailI__5812160E" FromRole="Recipient" ToRole="Mail" />
   </EntityType>
   <EntityType Name="Sender">
     <Key>
       <PropertyRef Name="MailId" />
+      <PropertyRef Name="Id" />
     </Key>
     <Property Name="EmailAccountId" Type="Int32" Nullable="false" />
     <Property Name="MailId" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="EmailAccount" Relationship="Self.FK__Sender__EmailAcc__534D60F1" FromRole="Sender" ToRole="EmailAccount" />
     <NavigationProperty Name="Mail" Relationship="Self.FK__Sender__MailId__5441852A" FromRole="Sender" ToRole="Mail" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Word">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Word1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Word1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="WordOccurrences" Relationship="Self.FK__WordOccur__WordI__619B8048" FromRole="Word" ToRole="WordOccurrence" />
   </EntityType>
   <EntityType Name="WordOccurrence">

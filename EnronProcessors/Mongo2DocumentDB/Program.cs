@@ -3,10 +3,10 @@
     class Program
     {
         static void Main(string[] args)
-        {            
-            var emailAccountProvider = //new LockingEmailAccountProviderDecorator(
-                new CachingEmailAccountProviderDecorator(
-                    new EmailAccountProvider("SQLDestination"));//);
+        {
+            var emailAccountProvider = (EmailAccountProvider)null;//new LockingEmailAccountProviderDecorator(
+                //new CachingEmailAccountProviderDecorator(
+                //    new EmailAccountProvider("SQLDestination"));//);
 
             var emailConverter = new EmailConverter(emailAccountProvider);
 

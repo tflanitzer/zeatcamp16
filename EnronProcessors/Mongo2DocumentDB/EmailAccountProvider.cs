@@ -1,6 +1,5 @@
 ﻿using System.Data;
 using System.Linq;
-using Mongo2DocumentDB.Models;
 
 namespace Mongo2DocumentDB
 {
@@ -13,34 +12,34 @@ namespace Mongo2DocumentDB
             DestinationConnectionStringName = destinationConnectionStringName;
         }
 
-        public EmailAccount GetEmailAccount(string emailAddress)
-        {
-            return GetOrCreateEmailAccount(emailAddress);
-        }
+        //public EmailAccount GetEmailAccount(string emailAddress)
+        //{
+        //    return GetOrCreateEmailAccount(emailAddress);
+        //}
 
-        private EmailAccount GetOrCreateEmailAccount(string emailAddress)
-        {
-            using (var enronSqlContext = new EnronSqlContext(DestinationConnectionStringName))
-            using (var transaction = enronSqlContext.Database.BeginTransaction(IsolationLevel.Serializable))
-            {
-                var existingEmailAccount =
-                    enronSqlContext.EmailAccount.SingleOrDefault(_ => _.EmailAddress == emailAddress);
+        //private EmailAccount GetOrCreateEmailAccount(string emailAddress)
+        //{
+        //    using (var enronSqlContext = new EnronSqlContext(DestinationConnectionStringName))
+        //    using (var transaction = enronSqlContext.Database.BeginTransaction(IsolationLevel.Serializable))
+        //    {
+        //        var existingEmailAccount =
+        //            enronSqlContext.EmailAccount.SingleOrDefault(_ => _.EmailAddress == emailAddress);
 
-                if (existingEmailAccount != null)
-                    return existingEmailAccount;
+        //        if (existingEmailAccount != null)
+        //            return existingEmailAccount;
 
-                var newEmailAccount = new EmailAccount()
-                {
-                    EmailAddress = emailAddress
-                };
+        //        var newEmailAccount = new EmailAccount()
+        //        {
+        //            EmailAddress = emailAddress
+        //        };
 
-                enronSqlContext.EmailAccount.Add(newEmailAccount);
+        //        enronSqlContext.EmailAccount.Add(newEmailAccount);
 
-                enronSqlContext.SaveChanges();
-                transaction.Commit();
+        //        enronSqlContext.SaveChanges();
+        //        transaction.Commit();
 
-                return newEmailAccount;
-            }
-        }
+        //        return newEmailAccount;
+        //    }
+        //}
     }
 }

@@ -1,0 +1,12 @@
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\Mongo2DocumentDB.exe.config
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\Mongo2DocumentDB.exe
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\Mongo2DocumentDB.pdb
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\EnronMailConversionUtil.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\MongoDB.Bson.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\MongoDB.Driver.Core.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\MongoDB.Driver.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\EnronMailConversionUtil.pdb
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\MongoDB.Bson.xml
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\MongoDB.Driver.xml
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\obj\Debug\Mongo2DocumentDB.exe
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\obj\Debug\Mongo2DocumentDB.pdb

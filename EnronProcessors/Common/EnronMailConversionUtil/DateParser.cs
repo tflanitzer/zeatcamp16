@@ -29,6 +29,12 @@ namespace EnronMailConversionUtil
                 DateTimeStyles.None,
                 out date);
 
+            // Correct dates with year 0001 to year 2000 (best guess)
+            if (date.Year == 1)
+            {
+                date = date.AddYears(1999);
+            }
+
             if (date == DateTime.MinValue)
                 Console.WriteLine("Date was in unexpected format : '" + dateString + "'.");
 

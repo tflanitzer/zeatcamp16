@@ -57,7 +57,7 @@ namespace Mongo2SQL
             mail.MailBox = mailBox.AsString;
             mail.SubFolder = subFolder.AsString;
             mail.Subject = subject.AsString;
-            mail.Date = new DateTimeOffset(date).ToUnixTimeSeconds();
+            mail.Date = date;
         }
 
         private void AddSender(Mail mail, BsonDocument headers)

@@ -34,7 +34,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Date" Type="Int64" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
     <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SubFolder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Attachments" Relationship="Self.FK__Attachmen__MailI__5AEE82B9" FromRole="Mail" ToRole="Attachment" />

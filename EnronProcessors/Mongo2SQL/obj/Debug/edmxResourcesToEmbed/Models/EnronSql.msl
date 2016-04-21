@@ -5,7 +5,6 @@
       <EntityTypeMapping TypeName="EnronSql.Attachment">
         <MappingFragment StoreEntitySet="Attachment">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="MailId" ColumnName="MailId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -18,21 +17,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Header">
-      <EntityTypeMapping TypeName="EnronSql.Header">
-        <MappingFragment StoreEntitySet="Header">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="MailId" ColumnName="MailId" />
-          <ScalarProperty Name="Key" ColumnName="Key" />
-          <ScalarProperty Name="Value" ColumnName="Value" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Mail">
       <EntityTypeMapping TypeName="EnronSql.Mail">
         <MappingFragment StoreEntitySet="Mail">
-          <ScalarProperty Name="MailBox" ColumnName="MailBox" />
-          <ScalarProperty Name="OriginalId" ColumnName="OriginalId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
           <ScalarProperty Name="Date" ColumnName="Date" />
@@ -45,8 +32,6 @@
       <EntityTypeMapping TypeName="EnronSql.Recipient">
         <MappingFragment StoreEntitySet="Recipient">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="EmailAccountId" ColumnName="EmailAccountId" />
-          <ScalarProperty Name="MailId" ColumnName="MailId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Type" ColumnName="Type" />
         </MappingFragment>
@@ -55,8 +40,7 @@
     <EntitySetMapping Name="Sender">
       <EntityTypeMapping TypeName="EnronSql.Sender">
         <MappingFragment StoreEntitySet="Sender">
-          <ScalarProperty Name="EmailAccountId" ColumnName="EmailAccountId" />
-          <ScalarProperty Name="MailId" ColumnName="MailId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -73,8 +57,6 @@
       <EntityTypeMapping TypeName="EnronSql.WordOccurrence">
         <MappingFragment StoreEntitySet="WordOccurrence">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="MailId" ColumnName="MailId" />
-          <ScalarProperty Name="WordId" ColumnName="WordId" />
           <ScalarProperty Name="Position" ColumnName="Position" />
         </MappingFragment>
       </EntityTypeMapping>

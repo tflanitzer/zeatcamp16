@@ -3,8 +3,6 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using EntityFramework.BulkInsert.Extensions;
-using Mongo2DocumentDB.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -38,37 +36,37 @@ namespace Mongo2DocumentDB
 
             while (true)
             {
-                using (var destinationContext = new EnronSqlContext(DestinationSqlConnectionStringName))
-                {
-                    destinationContext.Configuration.AutoDetectChangesEnabled = false;
+                //using (var destinationContext = new EnronSqlContext(DestinationSqlConnectionStringName))
+                //{
+                //    destinationContext.Configuration.AutoDetectChangesEnabled = false;
 
-                    try
-                    {
-                        var batch = sourceCollection.Skip(cursor).Limit(Configuration.BatchSize).ToEnumerable();
+                //    try
+                //    {
+                //        var batch = sourceCollection.Skip(cursor).Limit(Configuration.BatchSize).ToEnumerable();
 
-                        if (!batch.Any())
-                            break;
+                //        if (!batch.Any())
+                //            break;
 
-                        var convertedMails = batch
-                            //.AsParallel()
-                            .Select(originalEmail => EmailConverter.ConvertEmail(originalEmail))
-                            .ToArray();
+                //        var convertedMails = batch
+                //            //.AsParallel()
+                //            .Select(originalEmail => EmailConverter.ConvertEmail(originalEmail))
+                //            .ToArray();
 
-                        destinationContext.BulkInsert(convertedMails);
+                //        destinationContext.BulkInsert(convertedMails);
 
-                        cursor += Configuration.BatchSize;
+                //        cursor += Configuration.BatchSize;
 
-                        Console.WriteLine(
-                            "Converted {0} messages ({1} per minute)",
-                            cursor,
-                            cursor/stopwatch.Elapsed.TotalMilliseconds*1000*60);
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Exception occurred (retrying in 10s):" + e.ToString());
-                        Thread.Sleep(TimeSpan.FromSeconds(10));
-                    }
-                }
+                //        Console.WriteLine(
+                //            "Converted {0} messages ({1} per minute)",
+                //            cursor,
+                //            cursor/stopwatch.Elapsed.TotalMilliseconds*1000*60);
+                //    }
+                //    catch (Exception e)
+                //    {
+                //        Console.WriteLine("Exception occurred (retrying in 10s):" + e.ToString());
+                //        Thread.Sleep(TimeSpan.FromSeconds(10));
+                //    }
+                //}
             }
         }
 

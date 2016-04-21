@@ -1,0 +1,13 @@
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\Mongo2DocumentDB.exe.config
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\Mongo2DocumentDB.exe
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\Mongo2DocumentDB.pdb
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\EnronMailConversionUtil.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\MongoDB.Bson.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\MongoDB.Driver.Core.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\MongoDB.Driver.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\EnronMailConversionUtil.pdb
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\MongoDB.Bson.xml
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\MongoDB.Driver.xml
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\obj\Release\Mongo2DocumentDB.exe
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\obj\Release\Mongo2DocumentDB.pdb
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\obj\Release\Mongo2DocumentDB.csprojResolveAssemblyReference.cache

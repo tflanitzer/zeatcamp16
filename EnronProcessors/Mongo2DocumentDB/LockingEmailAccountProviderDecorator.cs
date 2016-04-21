@@ -1,5 +1,3 @@
-using Mongo2DocumentDB.Models;
-
 namespace Mongo2DocumentDB
 {
     class LockingEmailAccountProviderDecorator : IEmailAccountProvider
@@ -14,12 +12,12 @@ namespace Mongo2DocumentDB
             _lockObject = new object();
         }
 
-        public EmailAccount GetEmailAccount(string emailAddress)
-        {
-            lock (_lockObject)
-            {
-                return Decoratee.GetEmailAccount(emailAddress);
-            }
-        }
+        //public EmailAccount GetEmailAccount(string emailAddress)
+        //{
+        //    lock (_lockObject)
+        //    {
+        //        return Decoratee.GetEmailAccount(emailAddress);
+        //    }
+        //}
     }
 }
