@@ -103,7 +103,7 @@ public class DocumentToStructuredDocumentConverter {
 		MongoDBConnector mdbConnectorWriteDB = new MongoDBConnector("mongodb://104.46.32.71:27017","sNoSql");
 		mdbConnectorWriteDB.connectToMongoDB();
 
-		JSON2MailConverter converter = new JSON2MailConverter("From","To","Cc","Bcc","Subject","body");
+		JSON2MailConverter converter = new JSON2MailConverter("From","To","Cc","Bcc","Subject","body","_id","Date");
 
 		
 		System.out.println("Start reading out documents");
@@ -114,7 +114,7 @@ public class DocumentToStructuredDocumentConverter {
 		for(Document document: documentList){
 			Mail mail = converter.convertDocumentToMail(document);
 		
-			mdbConnectorWriteDB.cachedInsert(mail.createFatDocument(), "fatMail");
+			//mdbConnectorWriteDB.cachedInsert(mail.createFatDocument(), "fatMail");
 
 			
 			if(mailCounter == 10000){
@@ -128,9 +128,7 @@ public class DocumentToStructuredDocumentConverter {
 
      	mdbConnectorReadDB.closeDatabase();
 		mdbConnectorWriteDB.closeDatabase();
-		
-
-		
+				
 		
 	}
 	
