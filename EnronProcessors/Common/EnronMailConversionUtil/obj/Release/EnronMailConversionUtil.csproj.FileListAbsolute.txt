@@ -1,0 +1,4 @@
+C:\camp\zeatcamp16\EnronProcessors\Common\EnronMailConversionUtil\bin\Release\EnronMailConversionUtil.dll
+C:\camp\zeatcamp16\EnronProcessors\Common\EnronMailConversionUtil\bin\Release\EnronMailConversionUtil.pdb
+C:\camp\zeatcamp16\EnronProcessors\Common\EnronMailConversionUtil\obj\Release\EnronMailConversionUtil.dll
+C:\camp\zeatcamp16\EnronProcessors\Common\EnronMailConversionUtil\obj\Release\EnronMailConversionUtil.pdb
