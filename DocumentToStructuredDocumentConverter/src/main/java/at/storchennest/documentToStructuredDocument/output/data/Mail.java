@@ -1,6 +1,8 @@
 package at.storchennest.documentToStructuredDocument.output.data;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +26,8 @@ public class Mail extends ObjectWithUniqueID{
 	private String content;
 	private String originalID;
 	private HashMap<String,String> headerFields;
+	private LocalDate date;
+	
 	public Mail() {
 		super();
 		this.receipents = new ArrayList<Receipient>();
@@ -39,6 +43,14 @@ public class Mail extends ObjectWithUniqueID{
 
 
 	
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+
 	public String getContent() {
 		return content;
 	}

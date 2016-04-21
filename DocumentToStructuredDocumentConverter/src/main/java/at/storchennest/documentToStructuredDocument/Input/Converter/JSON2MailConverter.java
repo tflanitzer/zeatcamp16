@@ -1,8 +1,16 @@
 package at.storchennest.documentToStructuredDocument.Input.Converter;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.bson.Document;
 
@@ -20,18 +28,21 @@ public class JSON2MailConverter {
 	private String bcc;
 	private String subject;
 	private String body;
+	private String _id;
+	private String date;
 	
 	
-	
-	public JSON2MailConverter(String from, String to,String cc,String bcc, String subject, String body) {
+	public JSON2MailConverter(String from, String to, String cc, String bcc,
+			String subject, String body, String _id, String date) {
 		super();
 		this.from = from;
 		this.to = to;
 		this.cc = cc;
 		this.bcc = bcc;
-
 		this.subject = subject;
 		this.body = body;
+		this._id = _id;
+		this.date = date;
 	}
 
 
@@ -50,9 +61,9 @@ public class JSON2MailConverter {
 					if(entry.getKey().equals(subject)) mail.setSubject(headers.getString(subject));
 					else if (entry.getKey().equals(from)) mail.setSender(new EMailAccount(headers.getString(from)));
 					else if (entry.getKey().equals(to)) mail.addReceipents(createReceipients(headers.getString(to),"to"));
-					else if (entry.getKey().equals(cc)) mail.addReceipents(createReceipients(headers.getString(to),"cc"));
-					else if (entry.getKey().equals(bcc)) mail.addReceipents(createReceipients(headers.getString(to),"bcc"));
-					
+					else if (entry.getKey().equals(cc)) mail.addReceipents(createReceipients(headers.getString(cc),"cc"));
+					else if (entry.getKey().equals(bcc)) mail.addReceipents(createReceipients(headers.getString(bcc),"bcc"));
+					else if (entry.getKey().equals(date)) mail.setDate(convertStrintToLocalDate(headers.getString(date)));
 					else {
 						mail.addHeaderField(entry.getKey(), entry.getValue().toString());
 					}
@@ -75,6 +86,23 @@ public class JSON2MailConverter {
 		return mailAccounts;
 		
 				
+	}
+	
+	private LocalDate convertStrintToLocalDate(String input){
+		Pattern pattern = Pattern.compile("[\\d]* [a-zA-Z]* [\\d]* [\\d]*:[\\d]*:[\\d]*");
+		Matcher matcher = pattern.matcher(input);
+		String dateString="";
+		if (matcher.find())
+		{
+			dateString = matcher.group(0);
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM uuuu HH:mm:ss", Locale.ENGLISH);
+			LocalDate date = LocalDate.parse(dateString, formatter);
+			return date;
+		}
+		else{
+			System.out.println("Unable to find regex "+ input);
+			return null;
+		}
 	}
 
 }
