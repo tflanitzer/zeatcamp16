@@ -1,6 +1,5 @@
-import Greeter = require("./greeter.ts"); 
+import Greeter = require('./greeter');
 
-let greeter = new Greeter("Typescript");
+let greeter = new Greeter('Typescript');
 
-greeter.greet();
-
+console.log(greeter.greet());
