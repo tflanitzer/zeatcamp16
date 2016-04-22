@@ -10,3 +10,10 @@ C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\MongoDB.Bson.xml
 C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\MongoDB.Driver.xml
 C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\obj\Debug\Mongo2DocumentDB.exe
 C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\obj\Debug\Mongo2DocumentDB.pdb
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\DocumentDB.Spatial.Sql.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\Microsoft.Azure.Documents.Client.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\Newtonsoft.Json.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\Microsoft.Azure.Documents.Client.xml
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Debug\Newtonsoft.Json.xml
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\obj\Debug\Mongo2DocumentDB.csprojResolveAssemblyReference.cache

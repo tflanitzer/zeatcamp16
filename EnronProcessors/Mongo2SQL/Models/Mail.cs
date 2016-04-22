@@ -20,12 +20,12 @@ namespace Mongo2SQL.Models
 
         public int Id { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         public string Subject { get; set; }
 
         public DateTime Date { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         public string Body { get; set; }
 
         public string MailBox { get; set; }

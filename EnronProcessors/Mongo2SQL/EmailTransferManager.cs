@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Transactions;
 using EntityFramework.BulkInsert.Extensions;
 using Mongo2SQL.Models;
 using MongoDB.Bson;
@@ -43,6 +44,7 @@ namespace Mongo2SQL
             while (true)
             {
                 using (var destinationContext = new EnronSqlContext(DestinationSqlConnectionStringName))
+                //using (var transactionScope = new TransactionScope())
                 {
                     destinationContext.Configuration.AutoDetectChangesEnabled = false;
 
@@ -58,14 +60,27 @@ namespace Mongo2SQL
                             .Select(originalEmail => EmailConverter.ConvertEmail(originalEmail))
                             .ToArray();
 
-                        destinationContext.BulkInsert(convertedMails);
+                        destinationContext.Mail.AddRange(convertedMails);
+                        //destinationContext.BulkInsert(convertedMails);
+                        destinationContext.SaveChanges();
+                        //transactionScope.Complete();
+
+                        //var senders = convertedMails.Select(_ => _.Sender);
+                        //var recipients = convertedMails.SelectMany(_ => _.Recipients);
+                        //var headers = convertedMails.SelectMany(_ => _.Headers);
+
+                        //destinationContext.Sender.AddRange(senders);
+                        //destinationContext.Recipient.AddRange(recipients);
+                        //destinationContext.Header.AddRange(headers);
+
+                        //destinationContext.SaveChanges();
 
                         cursor += Configuration.BatchSize;
 
                         Console.WriteLine(
                             "Converted {0} messages ({1} per minute)",
                             cursor,
-                            cursor/stopwatch.Elapsed.TotalMilliseconds*1000*60);
+                            cursor / stopwatch.Elapsed.TotalMilliseconds * 1000 * 60);
                     }
                     catch (Exception e)
                     {

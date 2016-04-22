@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlTypes;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -15,7 +16,8 @@ namespace EnronMailConversionUtil
             if (!match.Success)
             {
                 Console.WriteLine("Date did not match: '" + dateString + "'.");
-                return DateTime.MinValue;
+                
+                return SqlDateTime.MinValue.Value;
             }
 
             var relevantPart = match.Groups["relevantPart"].Value;
@@ -29,10 +31,10 @@ namespace EnronMailConversionUtil
                 DateTimeStyles.None,
                 out date);
 
-            // Correct dates with year 0001 to year 2000 (best guess)
-            if (date.Year == 1)
+            // Correct dates with invalid year (for sql server datetime) to year 2000 (best guess for enron emails)
+            if (date.Year < 1753)
             {
-                date = date.AddYears(1999);
+                date = date.AddYears(2000-date.Year);
             }
 
             if (date == DateTime.MinValue)

@@ -1,0 +1,10 @@
+C:\camp\zeatcamp16\QueryPerformanceTests\Sql\bin\Release\Sql.exe.config
+C:\camp\zeatcamp16\QueryPerformanceTests\Sql\bin\Release\Sql.exe
+C:\camp\zeatcamp16\QueryPerformanceTests\Sql\bin\Release\Sql.pdb
+C:\camp\zeatcamp16\QueryPerformanceTests\Sql\bin\Release\Newtonsoft.Json.dll
+C:\camp\zeatcamp16\QueryPerformanceTests\Sql\bin\Release\PerformanceTestUtil.dll
+C:\camp\zeatcamp16\QueryPerformanceTests\Sql\bin\Release\PerformanceTestUtil.pdb
+C:\camp\zeatcamp16\QueryPerformanceTests\Sql\bin\Release\Newtonsoft.Json.xml
+C:\camp\zeatcamp16\QueryPerformanceTests\Sql\obj\Release\Sql.csprojResolveAssemblyReference.cache
+C:\camp\zeatcamp16\QueryPerformanceTests\Sql\obj\Release\Sql.exe
+C:\camp\zeatcamp16\QueryPerformanceTests\Sql\obj\Release\Sql.pdb

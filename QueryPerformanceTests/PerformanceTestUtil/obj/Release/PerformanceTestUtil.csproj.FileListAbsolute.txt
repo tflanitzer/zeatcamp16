@@ -1,0 +1,4 @@
+C:\camp\zeatcamp16\QueryPerformanceTests\PerformanceTestUtil\bin\Release\PerformanceTestUtil.dll
+C:\camp\zeatcamp16\QueryPerformanceTests\PerformanceTestUtil\bin\Release\PerformanceTestUtil.pdb
+C:\camp\zeatcamp16\QueryPerformanceTests\PerformanceTestUtil\obj\Release\PerformanceTestUtil.dll
+C:\camp\zeatcamp16\QueryPerformanceTests\PerformanceTestUtil\obj\Release\PerformanceTestUtil.pdb

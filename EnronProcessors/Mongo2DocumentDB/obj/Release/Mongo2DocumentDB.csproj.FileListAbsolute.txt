@@ -11,3 +11,9 @@ C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\MongoDB.Driver.x
 C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\obj\Release\Mongo2DocumentDB.exe
 C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\obj\Release\Mongo2DocumentDB.pdb
 C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\obj\Release\Mongo2DocumentDB.csprojResolveAssemblyReference.cache
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\DocumentDB.Spatial.Sql.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\Microsoft.Azure.Documents.Client.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\Newtonsoft.Json.dll
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\Microsoft.Azure.Documents.Client.xml
+C:\camp\zeatcamp16\EnronProcessors\Mongo2DocumentDB\bin\Release\Newtonsoft.Json.xml

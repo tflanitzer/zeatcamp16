@@ -11,8 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongo2DocumentDB", "Mongo2D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EnronSqlDB", "EnronSqlDB", "{A6620584-669A-4C19-A0A6-FFDACCBAA953}"
 	ProjectSection(SolutionItems) = preProject
+		CreateFullTextIndex.sql = CreateFullTextIndex.sql
 		..\EnronSqlDb\Enron.Queries.sql = ..\EnronSqlDb\Enron.Queries.sql
 		..\EnronSqlDb\Enron.Schema.sql = ..\EnronSqlDb\Enron.Schema.sql
+		HatchTeam.Queries.sql = HatchTeam.Queries.sql
 	EndProjectSection
 EndProject
 Global

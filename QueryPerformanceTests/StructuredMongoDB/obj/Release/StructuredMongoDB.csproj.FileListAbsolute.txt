@@ -1,0 +1,15 @@
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\StructuredMongoDB.exe.config
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\StructuredMongoDB.exe
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\StructuredMongoDB.pdb
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\MongoDB.Bson.dll
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\MongoDB.Driver.Core.dll
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\MongoDB.Driver.dll
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\Newtonsoft.Json.dll
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\PerformanceTestUtil.dll
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\PerformanceTestUtil.pdb
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\MongoDB.Bson.xml
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\MongoDB.Driver.xml
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\bin\Release\Newtonsoft.Json.xml
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\obj\Release\StructuredMongoDB.exe
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\obj\Release\StructuredMongoDB.pdb
+C:\camp\zeatcamp16\QueryPerformanceTests\StructuredMongoDB\obj\Release\StructuredMongoDB.csprojResolveAssemblyReference.cache

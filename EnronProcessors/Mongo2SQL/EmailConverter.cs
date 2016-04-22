@@ -48,9 +48,9 @@ namespace Mongo2SQL
             var mailBox = sourceEmail["mailbox"];
             var subFolder = sourceEmail["subFolder"];
             var subject = headers["Subject"];
-            var dateString = headers["Date"].AsString;
+            var dateString = headers["Date"];
 
-            var date = DateParser.ParseDate(dateString);
+            var date = DateParser.ParseDate(dateString.AsString);
 
             mail.OriginalId = originalId;
             mail.Body = body.AsString;
