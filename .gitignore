@@ -2,3 +2,9 @@ EnronProcessors/Mongo2SQL/dotNET/Mongo2SQL/bin/
 EnronProcessors/Mongo2SQL/dotNET/Mongo2SQL/obj/
 EnronProcessors/Mongo2SQL/dotNETCore/bin/
 EnronProcessors/Mongo2SQL/dotNETCore/obj/
+QueryPerformanceTests/StructuredMongoDB/obj/
+QueryPerformanceTests/StructuredMongoDB/bin/
+QueryPerformanceTests/PerformanceTestUtil/bin/
+QueryPerformanceTests/PerformanceTestUtil/obj/
+QueryPerformanceTests/Sql/bin/
+QueryPerformanceTests/Sql/obj/
