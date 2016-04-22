@@ -23,7 +23,7 @@ SELECT *
 	WHERE SenderEmailAccount.EmailAddress = 'jason.bass2@compaq.com'
 		AND RecipientEmailAccount.EmailAddress = 'eric.bass@enron.com'
 		AND Mail.[Date] >= '2000-11-1'
-		AND Mail.[Date] <= '2000-11-30'
+		AND Mail.[Date] < '2000-11-30'
 		AND (CONTAINS(Body, 'Ramiro') OR CONTAINS(Subject, 'Ramiro'))
 ";
     }

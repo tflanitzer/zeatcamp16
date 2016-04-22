@@ -13,6 +13,6 @@ namespace Sql.Queries
     {
         public AllMailsWithWordInSubjectOrBodyWithLike(SqlConnection connection) : base(connection) {}
 
-        public override string CommandText => @"SELECT * FROM Mail WHERE Body LIKE '%million%  OR Subject LIKE '%million%'";
+        public override string CommandText => @"SELECT * FROM Mail WHERE Body LIKE '%million%' OR Subject LIKE '%million%'";
     }
 }

@@ -20,7 +20,7 @@ namespace Sql.Queries
         {
             var command = Connection.CreateCommand();
 
-            command.CommandText = "SELECT * FROM Mail WHERE Date >= '2001-1-10' AND Date <= '2001-2-4' ORDER BY Date ASC";
+            command.CommandText = CommandText;
             using (var dataReader = command.ExecuteReader())
             {
                 var dataTable = new DataTable();

@@ -39,6 +39,7 @@ namespace Sql
                 };
 
                 PerformanceTest.StartStatisticsBatch("SQL Server", statisticsFile);
+
                 foreach (var query in queries)
                 {
                     PerformanceTest.Run(query.Key, resultsFolder, statisticsFile, query.Value);
